@@ -41,6 +41,15 @@ public class KafkaImpl {
     }
 
 
+    @KafkaListener(topics = "payment.failure",groupId = "zavvo")
+    public void paymentFailed(String email){
+        try {
+            emailService.sendPaymentEmail(email, EmailType.PAYMENT_FAILURE, "");
+        }catch (Exception e){
+            logger.error(e.getMessage(), e);
+        }
+    }
+
     private void retry(String message) {
         try {
             exponentialBackoffRetry.executeWithRetry(() -> {

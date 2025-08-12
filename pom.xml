@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zavvo</groupId>
-    <artifactId>email_service</artifactId>
+    <artifactId>email-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>email_service</name>
     <description>microservice for email logic</description>
