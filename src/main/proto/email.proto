@@ -1,0 +1,23 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "com.zavvo.email_service";
+option java_outer_classname = "EmailServiceProto";
+
+
+service EmailService{
+  rpc SendEmail(SendEmailRequest) returns (google.protobuf.Empty);
+}
+
+message SendEmailRequest{
+  string email = 1;
+  EmailType type = 2;
+  string cardNumber = 3;
+}
+
+enum EmailType {
+  PAYMENT_FAILURE = 0;
+  PAYMENT_SUCCESSFUL = 1;
+
+}

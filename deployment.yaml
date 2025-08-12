@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: email-service
+  template:
+    metadata:
+      labels:
+        app: email-service
+    spec:
+      containers:
+        - name: email-service
+          image: anasash99/email-service-zavvo:latest
+          ports:
+            - containerPort: 8080 # HTTP
+            - containerPort: 9091  # gRPC
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: mongodb://mongo:27017/zavvo
+            - name: MAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: email-secret
+                  key: gmail_username
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: email-secret
+                  key: gmail_password
