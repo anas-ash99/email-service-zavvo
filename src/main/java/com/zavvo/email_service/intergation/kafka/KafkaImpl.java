@@ -2,10 +2,11 @@ package com.zavvo.email_service.intergation.kafka;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.zavvo.common_utils.shared.ExponentialBackoffRetry;
+import com.zavvo.common_utils.shared.model.PaymentRequest;
 import com.zavvo.email_service.enums.EmailType;
 import com.zavvo.email_service.service.EmailService;
-import com.zavvo.shared.ExponentialBackoffRetry;
-import com.zavvo.shared.model.PaymentRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
