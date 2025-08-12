@@ -4,10 +4,10 @@ FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
 # Copy the built JAR into the container
-COPY target/email_service-0.0.1-SNAPSHOT.jar app.jar
+COPY target/email-service-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose ports (REST + gRPC)
-EXPOSE 8080 9091
+# Expose ports
+EXPOSE 8080
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
